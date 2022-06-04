@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+h2 {
+    margin: 0;
+}
+
+.main-Container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 0.5fr 6fr 0.5fr;
+    background-color: black;
+    color: rgb(255, 0, 0);
+}
+
+.header {
+    /* color: white; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content {
+} 
