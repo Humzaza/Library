@@ -1,5 +1,5 @@
 let button = document.querySelector('.add-Book');
-let content = document.querySelector('.bot-Content');
+let content = document.querySelector('.right-Content');
 let form = document.querySelector('.book-Form');
 let title = document.querySelector('#title');
 let author = document.querySelector('#author');
@@ -27,9 +27,13 @@ function book (title, author, pages, read) {
     }
 }
 
-// let b1 = new book("huma1", "me", 100, true);
-// myLibrary.push(b1);
-// console.log(contains(myLibrary, "huma17"));
+
+let b1 = new book("huma1", "me", 100, true);
+let b2 = new book("huma12", "3me", 100, false);
+
+myLibrary.push(b1);
+myLibrary.push(b2);
+console.log(myLibrary);
 
 
 function contains (array, title) {
@@ -42,16 +46,23 @@ function contains (array, title) {
 }
 
 
-
-
-
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new book(title, author, pages, read);
-    if(!contains(myLibrary, title)) {
+    if(!contains(myLibrary, title) && title != '') {
         myLibrary.push(newBook);
     }
     else {
         alert("book already here");
+    }
+    createDivs(myLibrary.length);
+}
+
+
+function createDivs(arrayLength) {
+    for (let i = 0; i < arrayLength; i++) {
+        let divs = document.createElement('div');
+        divs.className = 'book-Info';
+        content.appendChild(divs);  
     }
 }
 
