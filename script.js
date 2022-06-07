@@ -48,6 +48,8 @@ myLibrary.push(b2);
 removeAllContentDiv();
 createDivs(myLibrary);
 checkButton();
+deleteBut();
+console.log(myLibrary);
 
 function contains (array, title) {
     if (array.some(e => e.title === title)) {
@@ -70,6 +72,7 @@ function addBookToLibrary(title, author, pages, read) {
     removeAllContentDiv();
     createDivs(myLibrary);
     checkButton();
+    deleteBut();
 }
 
 
@@ -78,27 +81,37 @@ function createDivs(array) {
         let divs = document.createElement('div');
         divs.className = 'book-Info';
         content.appendChild(divs); 
+        
         divTitle = document.createElement('div');
         divTitle.textContent = myLibrary[i].title;
         divs.appendChild(divTitle);
+        
         divAuthor = document.createElement('div');
         divAuthor.textContent = myLibrary[i].author;
         divs.appendChild(divAuthor);
+        
         divPages = document.createElement('div');
         divPages.textContent = myLibrary[i].pages;
         divs.appendChild(divPages);
+        
         divRead = document.createElement('div');
         divRead.className = 'readDiv';
         divRead.textContent = myLibrary[i].read;
         divs.appendChild(divRead);
+        
         readBut = document.createElement('button');
         readBut.textContent = 'Read?';
         readBut.className = `readBut`;
         readBut.id = myLibrary[i].title;
         divRead.appendChild(readBut);
+
         divDelete = document.createElement('div');
-        divDelete.textContent = myLibrary[i].read;
         divs.appendChild(divDelete);
+        deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete?';
+        deleteButton.className = `deleteBut`;
+        deleteButton.id = `${i}`;
+        divDelete.appendChild(deleteButton);
     }
 }
 
@@ -120,12 +133,30 @@ function checkRead(buttonTitle) {
             else {
                 book.read = 'yes';
             }
-            console.log(myLibrary);
         }
     })
     removeAllContentDiv();
     createDivs(myLibrary);
     checkButton();
+    deleteBut();
+}
+
+function deleteBut() {
+    let allBut = document.querySelectorAll('.deleteBut');
+    allBut.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            deleteBook(e.target.id);
+        });
+    })
+} 
+
+function deleteBook(index) {
+    let tempArr = myLibrary.splice(index, 1);
+    console.log(myLibrary);
+    removeAllContentDiv();
+    createDivs(myLibrary);
+    checkButton();
+    deleteBut();
 }
 
 
@@ -135,6 +166,3 @@ function removeAllContentDiv() {
         rightContent.removeChild( rightContent.firstChild );
     }
 }
-
-
-
