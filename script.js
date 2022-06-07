@@ -54,15 +54,40 @@ function addBookToLibrary(title, author, pages, read) {
     else {
         alert("book already here");
     }
-    createDivs(myLibrary.length);
+    removeAllContentDiv();
+    createDivs(myLibrary);
 }
 
 
-function createDivs(arrayLength) {
-    for (let i = 0; i < arrayLength; i++) {
+function createDivs(array) {
+    for (let i = 0; i < array.length; i++) {
         let divs = document.createElement('div');
         divs.className = 'book-Info';
-        content.appendChild(divs);  
+        content.appendChild(divs); 
+        let divTitle = document.createElement('div');
+        divTitle.textContent = myLibrary[i].title;
+        divs.appendChild(divTitle);
+        let divAuthor = document.createElement('div');
+        divAuthor.textContent = myLibrary[i].author;
+        divs.appendChild(divAuthor);
+        let divPages = document.createElement('div');
+        divPages.textContent = myLibrary[i].pages;
+        divs.appendChild(divPages);
+        let divRead = document.createElement('div');
+        divRead.textContent = myLibrary[i].read;
+        divs.appendChild(divRead);
+        let divDelete = document.createElement('div');
+        divDelete.textContent = myLibrary[i].read;
+        divs.appendChild(divDelete);
     }
 }
+
+
+function removeAllContentDiv() {
+    rightContent = document.getElementById('remove-Content');
+    while ( rightContent.firstChild ) {
+        rightContent.removeChild( rightContent.firstChild );
+    }
+}
+
 
