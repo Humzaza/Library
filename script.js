@@ -6,6 +6,18 @@ let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
 let read = document.querySelector('input[name="read"]:checked').id;
 
+let divTitle = document.createElement('div');
+
+let divAuthor = document.createElement('div');
+
+let divPages = document.createElement('div');
+
+let divRead = document.createElement('div');
+
+let readBut = document.createElement('button');
+
+let divDelete = document.createElement('div');
+
 
 let myLibrary = [];
 
@@ -28,13 +40,14 @@ function book (title, author, pages, read) {
 }
 
 
-let b1 = new book("huma1", "me", 100, true);
-let b2 = new book("huma12", "3me", 100, false);
+let b1 = new book("huma1", "me", 100, 'yes');
+let b2 = new book("huma12", "3me", 100, 'no');
 
 myLibrary.push(b1);
 myLibrary.push(b2);
-console.log(myLibrary);
-
+removeAllContentDiv();
+createDivs(myLibrary);
+checkButton();
 
 function contains (array, title) {
     if (array.some(e => e.title === title)) {
@@ -56,6 +69,7 @@ function addBookToLibrary(title, author, pages, read) {
     }
     removeAllContentDiv();
     createDivs(myLibrary);
+    checkButton();
 }
 
 
@@ -64,26 +78,54 @@ function createDivs(array) {
         let divs = document.createElement('div');
         divs.className = 'book-Info';
         content.appendChild(divs); 
-        let divTitle = document.createElement('div');
+        divTitle = document.createElement('div');
         divTitle.textContent = myLibrary[i].title;
         divs.appendChild(divTitle);
-        let divAuthor = document.createElement('div');
+        divAuthor = document.createElement('div');
         divAuthor.textContent = myLibrary[i].author;
         divs.appendChild(divAuthor);
-        let divPages = document.createElement('div');
+        divPages = document.createElement('div');
         divPages.textContent = myLibrary[i].pages;
         divs.appendChild(divPages);
-        let divRead = document.createElement('div');
+        divRead = document.createElement('div');
         divRead.className = 'readDiv';
         divRead.textContent = myLibrary[i].read;
         divs.appendChild(divRead);
-        let readBut = document.createElement('button');
+        readBut = document.createElement('button');
         readBut.textContent = 'Read?';
+        readBut.className = `readBut`;
+        readBut.id = myLibrary[i].title;
         divRead.appendChild(readBut);
-        let divDelete = document.createElement('div');
+        divDelete = document.createElement('div');
         divDelete.textContent = myLibrary[i].read;
         divs.appendChild(divDelete);
     }
+}
+
+function checkButton() {
+    let allBut = document.querySelectorAll('.readBut');
+    allBut.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        checkRead(e.target.id);
+    });
+}) 
+}
+
+function checkRead(buttonTitle) {
+    myLibrary.forEach((book) => {
+        if(buttonTitle == book.title) {
+            if (book.read == 'yes') {
+                book.read = 'no';
+            }
+            else {
+                book.read = 'yes';
+            }
+            console.log(myLibrary);
+        }
+    })
+    removeAllContentDiv();
+    createDivs(myLibrary);
+    checkButton();
 }
 
 
