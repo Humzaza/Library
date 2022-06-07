@@ -74,8 +74,12 @@ function createDivs(array) {
         divPages.textContent = myLibrary[i].pages;
         divs.appendChild(divPages);
         let divRead = document.createElement('div');
+        divRead.className = 'readDiv';
         divRead.textContent = myLibrary[i].read;
         divs.appendChild(divRead);
+        let readBut = document.createElement('button');
+        readBut.textContent = 'Read?';
+        divRead.appendChild(readBut);
         let divDelete = document.createElement('div');
         divDelete.textContent = myLibrary[i].read;
         divs.appendChild(divDelete);
@@ -89,5 +93,6 @@ function removeAllContentDiv() {
         rightContent.removeChild( rightContent.firstChild );
     }
 }
+
 
 
