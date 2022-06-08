@@ -40,8 +40,8 @@ function book (title, author, pages, read) {
 }
 
 
-let b1 = new book("huma1", "me", 100, 'yes');
-let b2 = new book("huma12", "3me", 100, 'no');
+let b1 = new book("Naruto", "Masashi Kishimoto", 1000, 'yes');
+let b2 = new book("Bob", "Bob The Builder", 100, 'no');
 
 myLibrary.push(b1);
 myLibrary.push(b2);
@@ -84,14 +84,15 @@ function createDivs(array) {
         
         divTitle = document.createElement('div');
         divTitle.textContent = myLibrary[i].title;
+        divTitle.className = 'title-Styling';
         divs.appendChild(divTitle);
         
         divAuthor = document.createElement('div');
-        divAuthor.textContent = myLibrary[i].author;
+        divAuthor.textContent = `By: ${myLibrary[i].author}`;
         divs.appendChild(divAuthor);
         
         divPages = document.createElement('div');
-        divPages.textContent = myLibrary[i].pages;
+        divPages.textContent = `${myLibrary[i].pages} pages`;
         divs.appendChild(divPages);
         
         divRead = document.createElement('div');
@@ -100,13 +101,15 @@ function createDivs(array) {
         divs.appendChild(divRead);
         
         readBut = document.createElement('button');
-        readBut.textContent = 'Read?';
+        
         readBut.className = `readBut`;
         if(myLibrary[i].read == 'yes') {
             readBut.style.backgroundColor = 'green';
+            readBut.textContent = 'Book Read';
         }
         else {
             readBut.style.backgroundColor = 'red';
+            readBut.textContent = 'Book Not Read';
         }
         readBut.id = myLibrary[i].title;
         divRead.appendChild(readBut);
@@ -114,7 +117,7 @@ function createDivs(array) {
         divDelete = document.createElement('div');
         divs.appendChild(divDelete);
         deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete?';
+        deleteButton.textContent = 'Delete';
         deleteButton.className = `deleteBut`;
         deleteButton.id = `${i}`;
         divDelete.appendChild(deleteButton);
