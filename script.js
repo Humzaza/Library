@@ -96,12 +96,18 @@ function createDivs(array) {
         
         divRead = document.createElement('div');
         divRead.className = 'readDiv';
-        divRead.textContent = myLibrary[i].read;
+        // divRead.textContent = myLibrary[i].read;
         divs.appendChild(divRead);
         
         readBut = document.createElement('button');
         readBut.textContent = 'Read?';
         readBut.className = `readBut`;
+        if(myLibrary[i].read == 'yes') {
+            readBut.style.backgroundColor = 'green';
+        }
+        else {
+            readBut.style.backgroundColor = 'red';
+        }
         readBut.id = myLibrary[i].title;
         divRead.appendChild(readBut);
 
@@ -127,11 +133,15 @@ function checkButton() {
 function checkRead(buttonTitle) {
     myLibrary.forEach((book) => {
         if(buttonTitle == book.title) {
+            let tempback = document.getElementById(book.title);
+            console.log(tempback);
             if (book.read == 'yes') {
                 book.read = 'no';
+                tempback.style.backgroundColor = 'red';
             }
             else {
                 book.read = 'yes';
+                tempback.style.backgroundColor = 'green';
             }
         }
     })

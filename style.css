@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+
 }
 h2 {
     margin: 0;
@@ -43,18 +43,36 @@ h2 {
     display: grid;
     gap: 15px;
     /* grid-template-rows: repeat(5, 1fr); */
-    
+    background-color: rgba(63, 62, 62, 0.529);
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.form-Divs {
-
+input {
+    margin-top: 5px;
+}
+.radioB {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .right-Content {
     grid-area: 1 / 2 / 3 / 3;
-    display: grid;
+    display: flex;
     padding: 15px;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    min-height: 100vh;
+
+    
+}
+.green {
+    background-color: greenyellow;
+}
+.red {
+    background-color: red;
 }
 
 .book-Info {
@@ -62,9 +80,18 @@ h2 {
     border-radius: 10px;
     height: 250px;
     width: 250px;
+    display: grid;
+    gap: 20px;
+    padding: 10px;
+}
+
+.book-Info > div {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 }
+
+.book-Info > div > button  {
+    background-color: rgb(255, 255, 255);
+}
+
