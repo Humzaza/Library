@@ -7,15 +7,10 @@ let pages = document.querySelector('#pages');
 let read = document.querySelector('input[name="read"]:checked').id;
 
 let divTitle = document.createElement('div');
-
 let divAuthor = document.createElement('div');
-
 let divPages = document.createElement('div');
-
 let divRead = document.createElement('div');
-
 let readBut = document.createElement('button');
-
 let divDelete = document.createElement('div');
 
 
@@ -29,13 +24,25 @@ button.addEventListener('click', (e) => {
     addBookToLibrary(title, author, pages, read);
 });
 
-function book (title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function () {
-        return `The ${title} by ${author}, ${pages} pages, ${read}`;        
+// function book (title, author, pages, read) {
+    // this.title = title;
+    // this.author = author;
+    // this.pages = pages;
+    // this.read = read;
+    // this.info = function () {
+    //     return `The ${title} by ${author}, ${pages} pages, ${read}`;        
+    // }
+// }
+
+class book {
+    constructor (title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.info = function () {
+            return `The ${title} by ${author}, ${pages} pages, ${read}`;        
+        }
     }
 }
 
@@ -179,3 +186,14 @@ function removeAllContentDiv() {
         rightContent.removeChild( rightContent.firstChild );
     }
 }
+
+// class removeAllContentDiv {
+//     rightContent = document.getElementById('remove-Content');
+//     while ( rightContent.firstChild ) {
+//         rightContent.removeChild( rightContent.firstChild );
+//     }
+// }
+
+
+
+
