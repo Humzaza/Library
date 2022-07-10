@@ -1,106 +1,102 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Mono', monospace;
-    font-family: 'Rubik', sans-serif;
-    font-family: 'Zen Old Mincho', serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Rubik", sans-serif;
+  font-family: "Zen Old Mincho", serif;
 }
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .main-Container {
-    display: grid;
-    height: 100%;
-    grid-template-rows: 0.5fr 6fr 0.5fr;
-    background-color: black;
-    color: rgb(255, 0, 0);
+  display: grid;
+  height: 100%;
+  grid-template-rows: 0.5fr 6fr 0.5fr;
+  background-color: black;
+  color: rgb(255, 0, 0);
 }
 
 .header {
-    background-color: rgba(63, 62, 62, 0.529);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  background-color: rgba(63, 62, 62, 0.529);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .content {
-    background-color: black;
-    display: grid;
-    grid-template-columns: 0.5fr 4fr;
-} 
+  background-color: black;
+  display: grid;
+  grid-template-columns: 0.5fr 4fr;
+}
 .left-Content {
-    grid-area: 1 / 1 / 3 / 2;
-    padding: 70px 15px 35px 15px;
-    /* grid-template-rows: ; */
-    /* justify-self: center;
+  grid-area: 1 / 1 / 3 / 2;
+  padding: 70px 15px 35px 15px;
+  /* grid-template-rows: ; */
+  /* justify-self: center;
     align-self: center; */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .formInfo {
-    text-align: center;
-    display: grid;
-    gap: 15px;
-    /* grid-template-rows: repeat(5, 1fr); */
-    background-color: rgba(63, 62, 62, 0.529);
-    padding: 10px;
-    border-radius: 10px;
+  text-align: center;
+  display: grid;
+  gap: 15px;
+  /* grid-template-rows: repeat(5, 1fr); */
+  background-color: rgba(63, 62, 62, 0.529);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 input {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 .radioB {
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-around;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .right-Content {
-    grid-area: 1 / 2 / 3 / 3;
-    display: flex;
-    padding: 15px;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    min-height: 83.5vh;
-
-    
+  grid-area: 1 / 2 / 3 / 3;
+  display: flex;
+  padding: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  min-height: 83.5vh;
 }
 
 .book-Info {
-    background-color: rgba(63, 62, 62, 0.529);
-    border-radius: 10px;
-    height: 250px;
-    width: 250px;
-    display: grid;
-    gap: 20px;
-    padding: 10px;
+  background-color: rgba(63, 62, 62, 0.529);
+  border-radius: 10px;
+  height: 250px;
+  width: 250px;
+  display: grid;
+  gap: 20px;
+  padding: 10px;
 }
 
 .book-Info > div {
-    display: grid;
-    text-align: center;
+  display: grid;
+  text-align: center;
 }
 
-.book-Info > div > button  {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+.book-Info > div > button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .title-Styling {
-    font-size: large;
-    font-weight: 600;
-
+  font-size: large;
+  font-weight: 600;
 }
 
 .footer {
-    background-color: rgba(63, 62, 62, 0.529);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  background-color: rgba(63, 62, 62, 0.529);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
