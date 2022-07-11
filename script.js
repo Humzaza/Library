@@ -68,9 +68,10 @@ function addBookToLibrary(title, author, pages, read) {
   let newBook = new book(title, author, pages, read);
   if (!contains(myLibrary, title) && title != "") {
     myLibrary.push(newBook);
-  } else {
-    alert("book already here");
   }
+  //   else {
+  //   alert("book already here");
+  //   }
   removeAllContentDiv();
   createDivs(myLibrary);
   checkButton();
@@ -177,3 +178,39 @@ function removeAllContentDiv() {
     rightContent.removeChild(rightContent.firstChild);
   }
 }
+
+const titleInput = document.getElementById("title");
+
+titleInput.addEventListener("input", () => {
+  titleInput.setCustomValidity("");
+  titleInput.checkValidity();
+});
+titleInput.addEventListener("invalid", () => {
+  if (titleInput.value === "") {
+    titleInput.setCustomValidity("Please Enter a Title");
+  }
+});
+
+const authorInput = document.getElementById("author");
+
+authorInput.addEventListener("input", () => {
+  authorInput.setCustomValidity("");
+  authorInput.checkValidity();
+});
+authorInput.addEventListener("invalid", () => {
+  if (authorInput.value === "") {
+    authorInput.setCustomValidity("Please Enter The Author's Name");
+  }
+});
+
+const pagesInput = document.getElementById("pages");
+
+pagesInput.addEventListener("input", () => {
+  pagesInput.setCustomValidity("");
+  pagesInput.checkValidity();
+});
+pagesInput.addEventListener("invalid", () => {
+  if (pagesInput.value === "") {
+    pagesInput.setCustomValidity("Please Enter The number of Pages");
+  }
+});
